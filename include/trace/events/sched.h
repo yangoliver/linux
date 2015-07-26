@@ -346,6 +346,7 @@ DECLARE_EVENT_CLASS(sched_stat_template,
 );
 
 
+#ifdef CONFIG_SCHEDSTATS
 /*
  * Tracepoint for accounting wait time (time the task is runnable
  * but not actually running due to scheduler contention).
@@ -376,6 +377,7 @@ DEFINE_EVENT(sched_stat_template, sched_stat_iowait,
 DEFINE_EVENT(sched_stat_template, sched_stat_blocked,
 	     TP_PROTO(struct task_struct *tsk, u64 delay),
 	     TP_ARGS(tsk, delay));
+#endif
 
 /*
  * Tracepoint for accounting runtime (time the task is executing
